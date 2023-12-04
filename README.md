@@ -20,3 +20,28 @@ The CLIMA project is not just about the technical marvel of integrating data acr
 Marketing-wise, non of this rings new. What is definitively new though is the ability to respond in real time to the impredictable shifting conditions of weather to enhance the individual customers experience with your brand! By blending weather conditions data with additional demographic, behavioral and transactional data points made available through Twilio Segment, businesses are now able to build further TIMELINESS strength into their marketing strategy.
 ## PRE-RELEASE USE CASE
 USE CASE FOCUS: The business should be able to implement a running solution where if in the STORE DATAPOINT it begins to rain (ie: rain < 1024), for every CUSTOMER PROFILE on Twilio Segment (ETLd in AWS S30) whose locationLatitude & locationLongitude is within a half-mile radius from the STORE DATAPOINTs locationLatitude & locationLongitude, THEN update the CUSTOMER PROFILE attribute "alertRain" to TRUE (and rETL it back to Twilio Segment to activate any engagement desired). When the value for rain = 1024 back again, the the CUSTOMER PROFILE attribute "alertRain" should be updated back again to FALSE (and rETL it back to Twilio Segment to activate any engagement desired). 
+## What does each Sensor measure
+### A. The DHT11 Temperature & Humidity Sensor: 
+Measures the Temperature and Humidity of the surrounding air. The DHT11 is a low-cost digital sensor that uses Digital Signal Acquisition to convert the temperature and humidity into a digital reading. The DHT11 has four pins, one of which is used for serial data communication. The DHT11 can measure: https://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-an-arduino/
+1. Temperature: 0°C to 50°C, with a maximum accuracy of ±2°C.
+2. Humidity: 20% to 90% relative humidity; which is the amount of water vapor in the air compared to the saturation point of water vapor in the air.
+The DHT11 connects to the Arduino's digital IO pin. The Arduino reads the temperature and humidity every second and sends the data to the serial port. 
+### B. The Rain Sensor: AKA Raindrop Detector
+detects water that completes the circuits on its sensor boards' printed leads. The sensor board acts as a variable resistor that changes from 100k ohms when wet to 2M ohms when dry. The wetter the board, the more current that will be conducted. Considers a Potentiometer for sensitivity adjustment of the Analog Output (DO).
+### C. Light Sensor: 
+A Photoresistor light sensor in Arduino measures the amount of light in an environment. It's also known as a photocell or light dependent resistor. Photoresistors are analog sensors that change resistance based on the amount of light that hits them. When it's dark, the resistor has a high resistance of up to 10 megohms. When it's light, it has a few hundred ohms of resistance. In digital reads though, the measure has two values: 1 light, 0 dark, the set threshold in this case is 600 Ohms which is the point when sunset begins to happen based on initial analog measurements made.
+I was aware of the loss of granular data from using the Analog pin for the light sensor, but provided we only have one single Analog pin on the NodeMCU, then i gave priority to the rain reading in that case. RAIN is a more unpredictable factor, rather than LIGHT which is a bit more predictable at least to be able to set the threshold. With the threshold defined, if it gets dark earlier or later in the day due to seasonal stationality then we don't loose much insightful data to act upon after all... it is all about when it gets darker and not about degrees of darkness (like in the case of rain which both: “When” and “How Much” do matter). 
+### ARDUINO IDE SETTINGS
+- Baud(115,200)
+- WiFi 2.4Ghz -> Huesped1 / Pisha069
+### ARDUINO DESKTOP IDE TESTING AGENDA
+[Y] GENERAL_BLANK
+[Y] GENERAL_BLINK_TEST
+[Y] WIFI_CONNECTION_TEST
+[Y] WIFI_SCAN_TEST
+[Y] RTC_TIMESTAMP_DATE_TIME
+[Y] RTC_TIMESTAMP_DATE_PAST_TEMP
+[Y] DHT_UNIFIED_SENSOR_TEST
+[Y] RAIN_SENSOR_JSON_TEST
+[Y] LIGHT_SENSOR_TEST
+* These files are accessible at https://github.com/Noospheracr/CLIMA
