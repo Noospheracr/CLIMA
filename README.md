@@ -1,6 +1,5 @@
 # CLIMA
-## MOTIVATION
-PROJECT RATIONALE
+## PROJECT RATIONALE
 The unpredictability and profound impact of climate on every facet of life, including business and consumer behavior, is a matter of increasing urgency and importance. Far from a novelty, understanding and integrating climate data into business strategies is becoming a necessity for resilience and adaptability in a rapidly changing world.
 The implications of climate are vast, affecting supply chains, determining market availability, influencing consumer needs and behaviors, and even dictating the economic viability of certain business models. Some interesting facts, & newly developed services supporting this theses (see Further References on the right): 
 - Weather significantly affects consumer behavior, influencing mood, purchase decisions, and spending levels. It is the second largest influence on consumer behavior after economic conditions​​. [WeatherAds] 
