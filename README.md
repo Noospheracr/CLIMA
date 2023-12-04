@@ -8,6 +8,7 @@ The implications of climate are vast, affecting supply chains, determining marke
 - Studies have shown that various weather elements like temperature, humidity, snowfall, and especially sunlight, can impact retail sales. Sunlight has been found to particularly affect mood, which in turn influences consumer spending habits​​. [ScienceDirect]
 - The impact of weather can vary greatly, affecting daily sales by as much as 23.1% based on the store location and up to 40.7% depending on the sales theme, highlighting the significant influence of both extreme and favorable weather conditions​​. [Journal of Retail and Consumer Services]
 - Weather Unlocked reports that weather conditions can predict consumer demand with high accuracy, such as a 1-degree rise in temperature can increase the demand for certain products like fizzy drinks by 22%, while decreasing demand for others such as porridge by 60%​​. [WeatherUnlocked]
+
 Using real-time weather data as exemplified in the CLIMA project isn't just about tapping into a trend; it's about harnessing crucial environmental intelligence to make more informed, proactive decisions. It's a step towards sustainability and climate-conscious operations, aligning business practices with the larger global shift towards acknowledging and addressing the challenges posed by climate change.
 The CLIMA project is not just about the technical marvel of integrating data across platforms; it's about the foresight and responsibility of incorporating environmental factors into the core business strategy of any business. This approach can lead to brands being seen as leaders in climate adaptation, potentially influencing industry standards and consumer expectations. The project intends to be part of a larger movement that prioritizes not only economic efficiency but also environmental awareness and sustainable practices.
 ## FORSEEN USE CASES
@@ -16,6 +17,7 @@ The CLIMA project is not just about the technical marvel of integrating data acr
 - Information suggestions to make use of items/ services already purchased / contracted (off the counter medication usage to prevent health problems under certain conditions, or geared to enhance comfort usage: bought a blanket? now is the time to show us how you are enjoy it with this chilled up weather).
 - Suggestions of behaviour changes to make the most of certain conditions (energy efficiency tips for high electricity consumption appliances when the days are longer or shorter during summer and winter correspondingly).
 - Damage / hazard prevention from lack or over use of products in certain climate conditions (sunblock!)
+
 Marketing-wise, non of this rings new. What is definitively new though is the ability to respond in real time to the impredictable shifting conditions of weather to enhance the individual customers experience with your brand! By blending weather conditions data with additional demographic, behavioral and transactional data points made available through Twilio Segment, businesses are now able to build further TIMELINESS strength into their marketing strategy.
 ## PRE-RELEASE USE CASE
 USE CASE FOCUS: The business should be able to implement a running solution where if in the STORE DATAPOINT it begins to rain (ie: rain < 1024), for every CUSTOMER PROFILE on Twilio Segment (ETLd in AWS S30) whose locationLatitude & locationLongitude is within a half-mile radius from the STORE DATAPOINTs locationLatitude & locationLongitude, THEN update the CUSTOMER PROFILE attribute "alertRain" to TRUE (and rETL it back to Twilio Segment to activate any engagement desired). When the value for rain = 1024 back again, the the CUSTOMER PROFILE attribute "alertRain" should be updated back again to FALSE (and rETL it back to Twilio Segment to activate any engagement desired). 
@@ -34,13 +36,13 @@ I was aware of the loss of granular data from using the Analog pin for the light
 - Baud(115,200)
 - WiFi 2.4Ghz -> Huesped1 / Pisha069
 ### ARDUINO DESKTOP IDE TESTING AGENDA
-[Y] GENERAL_BLANK
-[Y] GENERAL_BLINK_TEST
-[Y] WIFI_CONNECTION_TEST
-[Y] WIFI_SCAN_TEST
-[Y] RTC_TIMESTAMP_DATE_TIME
-[Y] RTC_TIMESTAMP_DATE_PAST_TEMP
-[Y] DHT_UNIFIED_SENSOR_TEST
-[Y] RAIN_SENSOR_JSON_TEST
-[Y] LIGHT_SENSOR_TEST
+- [Y] GENERAL_BLANK
+- [Y] GENERAL_BLINK_TEST
+- [Y] WIFI_CONNECTION_TEST
+- [Y] WIFI_SCAN_TEST
+- [Y] RTC_TIMESTAMP_DATE_TIME
+- [Y] RTC_TIMESTAMP_DATE_PAST_TEMP
+- [Y] DHT_UNIFIED_SENSOR_TEST
+- [Y] RAIN_SENSOR_JSON_TEST
+- [Y] LIGHT_SENSOR_TEST
 * These files are accessible at https://github.com/Noospheracr/CLIMA
