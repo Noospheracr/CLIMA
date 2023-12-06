@@ -1,0 +1,119 @@
+<!-- Start of SEGMENT Embed Code -->
+<script>
+  !function(){
+    var analytics = window.analytics = window.analytics || [];
+    if (!analytics.initialize) {
+      if (analytics.invoked) {
+        window.console && console.error && console.error("Segment snippet included twice.");
+      } else {
+        analytics.invoked = !0;
+        analytics.methods = [
+          "trackSubmit",
+          "trackClick",
+          "trackLink",
+          "trackForm",
+          "pageview",
+          "identify",
+          "reset",
+          "group",
+          "track",
+          "ready",
+          "alias",
+          "debug",
+          "page",
+          "once",
+          "off",
+          "on",
+          "addSourceMiddleware",
+          "addIntegrationMiddleware",
+          "setAnonymousId",
+          "addDestinationMiddleware"
+        ];
+        analytics.factory = function(e) {
+          return function() {
+            if (window.analytics.initialized) {
+              return window.analytics[e].apply(window.analytics, arguments);
+            }
+            var i = Array.prototype.slice.call(arguments);
+            i.unshift(e);
+            analytics.push(i);
+            return analytics;
+          };
+        };
+        for (var i = 0; i < analytics.methods.length; i++) {
+          var key = analytics.methods[i];
+          analytics[key] = analytics.factory(key);
+        }
+        
+        // Load the analytics.js library
+        analytics.load("gYfXBFVJe0JFnTyEb2KvxCMfpOTahgq1");
+        
+        // Page view tracking
+        analytics.page();
+
+        // Track form submission as a goal with virtual page view
+        document.addEventListener('submit', function(e) {
+          if (e.target && e.target.tagName.toLowerCase() === 'form') {
+            // Customize this to capture form data
+            var formData = {
+              email: e.target.querySelector('[name="email"]').value,
+              name: e.target.querySelector('[name="name"]').value,
+              company: e.target.querySelector('[name="company"]').value,
+              phone: e.target.querySelector('[name="phone"]').value,
+              comments: e.target.querySelector('[name="comments"]').value
+            };
+
+            // Capture geolocation
+            if ("geolocation" in navigator) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+                formData.latitude = position.coords.latitude;
+                formData.longitude = position.coords.longitude;
+
+                // Send the tracking event with form data and geolocation
+                analytics.track('Form Submitted', formData);
+
+                // Send virtual page view for goal tracking
+                analytics.page('/tilda/form641242376/submitted/');
+
+                // Send the "Lead" event for Facebook Pixel
+                fbq('track', 'Lead');
+              });
+            } else {
+              // Send virtual page view for goal tracking
+              analytics.page('/tilda/form641242376/submitted/');
+
+              // Send the "Lead" event for Facebook Pixel
+              fbq('track', 'Lead');
+            }
+          }
+        });
+
+        // Track PDF downloads
+        document.querySelectorAll('a[data-pdf]').forEach(function(pdfLink) {
+          pdfLink.addEventListener('click', function() {
+            var pdfName = pdfLink.getAttribute('data-pdf');
+            analytics.track('PDF Downloaded', { pdfName: pdfName });
+          });
+        });
+
+        // Track YouTube video views (assuming you have embedded YouTube videos)
+        // You may need to customize the YouTube iframe tracking code
+
+        // Track external links
+        document.querySelectorAll('a[target="_blank"]').forEach(function(externalLink) {
+          externalLink.addEventListener('click', function() {
+            var externalUrl = externalLink.href;
+            analytics.track('External Link Clicked', { url: externalUrl });
+          });
+        });
+
+        // Track chat interactions (if possible with your HubSpot chat)
+        // This might require additional customization based on your chat setup
+
+        // Track other relevant interactions as needed
+
+      }
+    }
+  }();
+</script>
+<!-- End of SEGMENT Embed Code -->
