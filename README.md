@@ -1,4 +1,4 @@
-# CLIMA
+# CLIMA: Client-Linked Integration of Meteorological Activity
 ## PROJECT RATIONALE
 The unpredictability and profound impact of climate on every facet of life, including business and consumer behavior, is a matter of increasing urgency and importance. Far from a novelty, understanding and integrating climate data into business strategies is becoming a necessity for resilience and adaptability in a rapidly changing world.
 
